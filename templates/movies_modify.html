@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Movie modify page{% endblock title %}
+{% block main %}
+    <form action="{{ request.path }}" method="post">
+        <label for="title">Title</label>
+        <br/>
+        <input type="text" name="title" value="{{ movie.title }}" />
+        <br/>
+        <label for="release_year">Release Year</label>
+        <br/>
+        <input type="number" name="release_year" value="{{ movie.release_year }}" />
+        <br/>
+        <label for="director">Director</label>
+        <br/>
+        <input name="director" value="{{ movie.director }}" />
+        <br/>
+        <label for="runtime">Runtime</label>
+        <br/>
+        <input type="number" name="runtime" value="{{ movie.runtime }}" />
+        <br/>
+        <input type="submit" value="Submit" />
+    </form>
+{% endblock main %}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link type="text/css"
+              rel="stylesheet"
+              href="{{ url_for('static', filename='css/bootstrap.min.css') }}"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>{% block title %}{% endblock title %}</title>
+    </head>
+    <body>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">My Site</a>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('about') }}">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('movies') }}">Movies</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <picture>
+                <source srcset="{{ url_for('static', filename='img/img_smallflower.jpg') }}" media="(max-width: 600px)"/>
+                <source srcset="{{ url_for('static', filename='img/img_flowers.jpg') }}" media="(max-width: 1500px)"/>
+                <source srcset="{{ url_for('static', filename='img/flowers.jpg') }}"/>
+                <img src="{{ url_for('static', filename='img/img_smallflower.jpg') }}" alt="Flowers"/>
+            </picture>
+            <h1>Welcome to my website</h1>
+            {% block main %}{% endblock main %}
+            <p>This is the end of the page</p>
+        </div>
+    </body>
+</html>

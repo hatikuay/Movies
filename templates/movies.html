@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Movies page{% endblock title %}
+{% block main %}
+    {% for movie in movies %}
+        <li>
+            <a href="{{ url_for('movie', id=movie.id) }}">{{ movie.title }}</a>
+        </li>
+    {% endfor %}
+    <a href="{{ url_for('movies_create') }}">Add a new movie</a>
+{% endblock main %}

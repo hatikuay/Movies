@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}Movie delete page{% endblock title %}
+{% block main %}
+    <h1>Delete {{ movie.title }}?</h1>
+    <form action="{{ request.path }}" method="post">
+        <input type="submit" value="Delete"/>
+    </form>
+{% endblock main %}

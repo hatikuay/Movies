@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Movie page{% endblock title %}
+{% block main %}
+    <h1>{{ movie.title }} ({{ movie.release_year }})</h1>
+    <p>Runtime: {{ movie.runtime }}</p>
+    <p>Director: {{ movie.director }}</p>
+    <a href="{{ url_for('movies_modify', id=movie.id) }}">Modify</a>
+    <a href="{{ url_for('movies_delete', id=movie.id) }}">Delete</a>
+    <a href="{{ url_for('movies') }}">Back to movies</a>
+{% endblock main %}
+
