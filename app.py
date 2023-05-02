@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -69,6 +69,12 @@ def movies_create():
         db.session.commit()
         return redirect(url_for("movies"))
     return render_template("movies_create.html")
+
+@app.route("/api/test")
+def api_test():
+    data = {"text": "hello"}
+    return jsonify(data)
+
 
 
 if __name__ == "__main__":
